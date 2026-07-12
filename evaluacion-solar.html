@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Evaluación de Proyecto Fotovoltaico | INEC</title>
+
+  <meta
+    name="description"
+    content="Complete una evaluación preliminar para su proyecto de energía solar fotovoltaica."
+  >
+
+  <style>
+    :root {
+      --azul-principal: #075da8;
+      --azul-oscuro: #033d70;
+      --azul-claro: #edf6ff;
+      --blanco: #ffffff;
+      --gris-fondo: #f4f6f8;
+      --gris-texto: #52606d;
+      --gris-borde: #d8dee6;
+      --verde: #16883e;
+      --rojo: #c62828;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--gris-fondo);
+      color: #182230;
+    }
+
+    .encabezado {
+      padding: 45px 20px 70px;
+      color: var(--blanco);
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        var(--azul-oscuro),
+        var(--azul-principal)
+      );
+    }
+
+    .logo {
+      width: 110px;
+      max-width: 35%;
+      margin-bottom: 18px;
+    }
+
+    .encabezado h1 {
+      max-width: 850px;
+      margin: 0 auto 15px;
+      font-size: clamp(29px, 5vw, 46px);
+      line-height: 1.15;
+    }
+
+    .encabezado p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .seccion-formulario {
+      padding: 0 18px 70px;
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: 760px;
+      margin: -35px auto 0;
+      padding: 32px;
+      background: var(--blanco);
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 35, 70, 0.14);
+    }
+
+    .barra-superior {
+      margin-bottom: 28px;
+    }
+
+    .informacion-progreso {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--gris-texto);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .barra {
+      width: 100%;
+      height: 10px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #e6ebf0;
+    }
+
+    .progreso {
+      width: 33.33%;
+      height: 100%;
+      background: var(--azul-principal);
+      transition: width 0.3s ease;
+    }
+
+    .paso {
+      display: none;
+    }
+
+    .paso.activo {
+      display: block;
+    }
+
+    .paso h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--azul-oscuro);
+      font-size: 26px;
+    }
+
+    .descripcion {
+      margin-top: 0;
+      margin-bottom: 25px;
+      color: var(--gris-texto);
+      line-height: 1.5;
+    }
+
+    .pregunta {
+      margin-bottom: 25px;
+    }
+
+    .pregunta-titulo {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .obligatorio {
+      color: var(--rojo);
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--gris-borde);
+      border-radius: 9px;
+      background: var(--blanco);
+      font-size: 16px;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    select:focus {
+      border-color: var(--azul-principal);
+      box-shadow: 0 0 0 3px rgba(7, 93, 168, 0.12);
+    }
+
+    .opciones {
+      display: grid;
+      gap: 10px;
+    }
+
+    .opcion {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px;
+      border: 1px solid var(--gris-borde);
+      border-radius: 9px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .opcion:hover {
+      border-color: var(--azul-principal);
+      background: var(--azul-claro);
+    }
+
+    .opcion input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 14px 24px;
+      border: none;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .anterior {
+      color: #263445;
+      background: #e8edf2;
+    }
+
+    .siguiente {
+      margin-left: auto;
+      color: var(--blanco);
+      background: var(--azul-principal);
+    }
+
+    .enviar {
+      color: var(--blanco);
+      background: var(--verde);
+    }
+
+    .mensaje-error {
+      display: none;
+      margin-bottom: 20px;
+      padding: 13px;
+      color: var(--rojo);
+      background: #fff1f0;
+      border: 1px solid #f0c5c2;
+      border-radius: 8px;
+    }
+
+    .resultado {
+      display: none;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .resultado h2 {
+      margin-top: 0;
+      color: var(--azul-oscuro);
+      font-size: 29px;
+    }
+
+    .resultado p {
+      color: var(--gris-texto);
+      line-height: 1.6;
+    }
+
+    .boton-whatsapp {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 15px 24px;
+      color: var(--blanco);
+      background: var(--verde);
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--azul-principal);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .aviso {
+      margin-top: 20px;
+      color: var(--gris-texto);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .encabezado {
+        padding: 35px 18px 62px;
+      }
+
+      .encabezado p {
+        font-size: 16px;
+      }
+
+      .contenedor {
+        padding: 24px 18px;
+        border-radius: 14px;
+      }
+
+      .botones {
+        flex-direction: column-reverse;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .siguiente {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="encabezado">
+
+    <img
+      src="logo-inec.png"
+      alt="Logo de INEC"
+      class="logo"
+    >
+
+    <h1>Evaluación de Proyecto Fotovoltaico</h1>
+
+    <p>
+      Responda estas siete preguntas para conocer su consumo,
+      ubicación y necesidades. La información nos permitirá realizar
+      una evaluación preliminar de su proyecto solar.
+    </p>
+  </header>
+
+  <main class="seccion-formulario">
+    <div class="contenedor">
+
+      <div id="contenidoFormulario">
+
+        <div class="barra-superior">
+          <div class="informacion-progreso">
+            <span id="textoPaso">Paso 1 de 3</span>
+            <span id="porcentaje">33%</span>
+          </div>
+
+          <div class="barra">
+            <div class="progreso" id="barraProgreso"></div>
+          </div>
+        </div>
+
+        <div class="mensaje-error" id="mensajeError">
+          Complete todas las preguntas obligatorias antes de continuar.
+        </div>
+
+        <form id="formularioSolar">
+
+          <!-- PASO 1 -->
+          <section class="paso activo">
+
+            <h2>Información del proyecto</h2>
+
+            <p class="descripcion">
+              Cuéntenos sobre la propiedad donde desea instalar
+              el sistema fotovoltaico.
+            </p>
+
+            <div class="pregunta">
+              <label class="pregunta-titulo" for="tipoPropiedad">
+                1. ¿Qué tipo de propiedad desea alimentar con energía solar?
+                <span class="obligatorio">*</span>
+              </label>
+
+              <select
+                id="tipoPropiedad"
+                name="tipoPropiedad"
+                required
+              >
+                <option value="">Seleccione una opción</option>
+                <option value="Vivienda">Vivienda</option>
+                <option value="Comercio">Comercio</option>
+                <option value="Empresa o industria">
+                  Empresa o industria
+                </option>
+                <option value="Finca o propiedad agrícola">
+                  Finca o propiedad agrícola
+                </option>
+                <option value="Edificio o condominio">
+                  Edificio o condominio
+                </option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="pregunta">
+              <label class="pregunta-titulo" for="ubicacion">
+                2. ¿En qué ciudad o municipio se encuentra la propiedad?
+                <span class="obligatorio">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="ubicacion"
+                name="ubicacion"
+                placeholder="Ejemplo: Quimistán, Santa Bárbara"
+                required
+              >
+            </div>
+
+            <div class="botones">
+              <button type="button" class="siguiente">
+                Siguiente
+              </button>
+            </div>
+          </section>
+
+          <!-- PASO 2 -->
+          <section class="paso">
+
+            <h2>Consumo y necesidad</h2>
+
+            <p class="descripcion">
+              Estos datos nos ayudan a conocer el tipo de sistema
+              que podría adaptarse a su propiedad.
+            </p>
+
+            <div class="pregunta">
+              <label class="pregunta-titulo" for="facturaMensual">
+                3. ¿Cuál es el valor aproximado de su factura eléctrica mensual?
+                <span class="obligatorio">*</span>
+              </label>
+
+              <select
+                id="facturaMensual"
+                name="facturaMensual"
+                required
+              >
+                <option value="">Seleccione una opción</option>
+                <option value="Menos de L 2,000">
+                  Menos de L 2,000
+                </option>
+                <option value="Entre L 2,000 y L 5,000">
+                  Entre L 2,000 y L 5,000
+                </option>
+                <option value="Entre L 5,001 y L 10,000">
+                  Entre L 5,001 y L 10,000
+                </option>
+                <option value="Entre L 10,001 y L 25,000">
+                  Entre L 10,001 y L 25,000
+                </option>
+                <option value="Más de L 25,000">
+                  Más de L 25,000
+                </option>
+              </select>
+            </div>
+
+            <div class="pregunta">
+              <label class="pregunta-titulo" for="objetivo">
+                4. ¿Cuál es su principal objetivo con el sistema solar?
+                <span class="obligatorio">*</span>
+              </label>
+
+              <select
+                id="objetivo"
+                name="objetivo"
+                required
+              >
+                <option value="">Seleccione una opción</option>
+
+                <option value="Reducir la factura eléctrica">
+                  Reducir mi factura eléctrica
+                </option>
+
+                <option value="Tener energía durante apagones">
+                  Tener energía durante apagones
+                </option>
+
+                <option value="Reducir factura y tener respaldo">
+                  Reducir mi factura y tener respaldo
+                </option>
+
+                <option value="Evaluar la rentabilidad">
+                  Evaluar si la inversión es rentable
+                </option>
+
+                <option value="Alimentar una instalación nueva">
+                  Alimentar una instalación nueva
+                </option>
+              </select>
+            </div>
+
+            <div class="pregunta">
+              <span class="pregunta-titulo">
+                5. ¿Tiene disponible una factura eléctrica reciente?
+                <span class="obligatorio">*</span>
+              </span>
+
+              <div class="opciones">
+
+                <label class="opcion">
+                  <input
+                    type="radio"
+                    name="facturaDisponible"
+                    value="Sí, puede enviarla"
+                    required
+                  >
+                  Sí, puedo enviarla
+                </label>
+
+                <label class="opcion">
+                  <input
+                    type="radio"
+                    name="facturaDisponible"
+                    value="Sí, pero no está disponible ahora"
+                  >
+                  Sí, pero no la tengo disponible ahora
+                </label>
+
+                <label class="opcion">
+                  <input
+                    type="radio"
+                    name="facturaDisponible"
+                    value="No tiene factura disponible"
+                  >
+                  No
+                </label>
+
+              </div>
+            </div>
+
+            <div class="botones">
+              <button type="button" class="anterior">
+                Anterior
+              </button>
+
+              <button type="button" class="siguiente">
+                Siguiente
+              </button>
+            </div>
+          </section>
+
+          <!-- PASO 3 -->
+          <section class="paso">
+
+            <h2>Plazo y contacto</h2>
+
+            <p class="descripcion">
+              Indíquenos cuándo desea realizar el proyecto y cómo podemos
+              comunicarnos con usted.
+            </p>
+
+            <div class="pregunta">
+              <label class="pregunta-titulo" for="plazo">
+                6. ¿En cuánto tiempo desea realizar el proyecto?
+                <span class="obligatorio">*</span>
+              </label>
+
+              <select
+                id="plazo"
+                name="plazo"
+                required
+              >
+                <option value="">Seleccione una opción</option>
+
+                <option value="Lo antes posible">
+                  Lo antes posible
+                </option>
+
+                <option value="Durante el próximo mes">
+                  Durante el próximo mes
+                </option>
+
+                <option value="En los próximos 3 meses">
+                  En los próximos 3 meses
+                </option>
+
+                <option value="En los próximos 6 meses">
+                  En los próximos 6 meses
+                </option>
+
+                <option value="Solo está investigando">
+                  Por ahora solo estoy investigando
+                </option>
+              </select>
+            </div>
+
+            <div class="pregunta">
+              <span class="pregunta-titulo">
+                7. Datos de contacto
+                <span class="obligatorio">*</span>
+              </span>
+
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Nombre completo"
+                required
+              >
+
+              <br><br>
+
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Número de WhatsApp"
+                required
+              >
+            </div>
+
+            <div class="pregunta">
+              <label class="opcion">
+                <input
+                  type="checkbox"
+                  id="autorizacion"
+                  name="autorizacion"
+                  required
+                >
+
+                Autorizo que INEC se comunique conmigo para brindarme
+                información relacionada con mi proyecto fotovoltaico.
+              </label>
+            </div>
+
+            <div class="botones">
+
+              <button type="button" class="anterior">
+                Anterior
+              </button>
+
+              <button type="submit" class="enviar">
+                Finalizar evaluación
+              </button>
+
+            </div>
+          </section>
+
+        </form>
+
+        <p class="aviso">
+          La información será utilizada únicamente para evaluar
+          preliminarmente su solicitud y contactarlo sobre el proyecto.
+        </p>
+      </div>
+
+      <div class="resultado" id="resultado">
+
+        <h2>Evaluación completada</h2>
+
+        <p>
+          Presione el botón para enviarnos sus respuestas directamente
+          por WhatsApp.
+        </p>
+
+        <a
+          href="#"
+          id="botonWhatsapp"
+          class="boton-whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Enviar evaluación por WhatsApp
+        </a>
+
+        <br>
+
+        <a href="index.html" class="volver">
+          Volver a la página principal
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    const pasos = document.querySelectorAll(".paso");
+    const botonesSiguiente = document.querySelectorAll(".siguiente");
+    const botonesAnterior = document.querySelectorAll(".anterior");
+
+    const barraProgreso =
+      document.getElementById("barraProgreso");
+
+    const textoPaso =
+      document.getElementById("textoPaso");
+
+    const porcentaje =
+      document.getElementById("porcentaje");
+
+    const mensajeError =
+      document.getElementById("mensajeError");
+
+    const formulario =
+      document.getElementById("formularioSolar");
+
+    const contenidoFormulario =
+      document.getElementById("contenidoFormulario");
+
+    const resultado =
+      document.getElementById("resultado");
+
+    const botonWhatsapp =
+      document.getElementById("botonWhatsapp");
+
+    let pasoActual = 0;
+
+    function actualizarProgreso() {
+      const avance =
+        ((pasoActual + 1) / pasos.length) * 100;
+
+      barraProgreso.style.width = avance + "%";
+
+      textoPaso.textContent =
+        "Paso " + (pasoActual + 1) +
+        " de " + pasos.length;
+
+      porcentaje.textContent =
+        Math.round(avance) + "%";
+    }
+
+    function validarPaso() {
+      const campos =
+        pasos[pasoActual].querySelectorAll(
+          "input, select"
+        );
+
+      let esValido = true;
+
+      campos.forEach((campo) => {
+        if (!campo.checkValidity()) {
+          esValido = false;
+        }
+      });
+
+      if (!esValido) {
+        mensajeError.style.display = "block";
+
+        const primerCampoInvalido =
+          pasos[pasoActual].querySelector(
+            "input:invalid, select:invalid"
+          );
+
+        if (primerCampoInvalido) {
+          primerCampoInvalido.focus();
+        }
+
+        return false;
+      }
+
+      mensajeError.style.display = "none";
+      return true;
+    }
+
+    botonesSiguiente.forEach((boton) => {
+      boton.addEventListener("click", () => {
+
+        if (!validarPaso()) {
+          return;
+        }
+
+        pasos[pasoActual].classList.remove("activo");
+
+        pasoActual++;
+
+        pasos[pasoActual].classList.add("activo");
+
+        actualizarProgreso();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    botonesAnterior.forEach((boton) => {
+      boton.addEventListener("click", () => {
+
+        mensajeError.style.display = "none";
+
+        pasos[pasoActual].classList.remove("activo");
+
+        pasoActual--;
+
+        pasos[pasoActual].classList.add("activo");
+
+        actualizarProgreso();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    formulario.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+
+      if (!validarPaso()) {
+        return;
+      }
+
+      const datos = new FormData(formulario);
+
+      /*
+        CAMBIA ESTE NÚMERO POR TU WHATSAPP.
+
+        Debes poner:
+        504 + tu número de ocho dígitos.
+
+        No uses:
+        espacios, guiones ni el signo +
+      */
+
+      const numeroWhatsapp = "50432763709";
+
+      const mensaje = `
+NUEVA EVALUACIÓN DE PROYECTO FOTOVOLTAICO
+
+Nombre: ${datos.get("nombre")}
+WhatsApp del cliente: ${datos.get("telefono")}
+
+Tipo de propiedad: ${datos.get("tipoPropiedad")}
+Ubicación: ${datos.get("ubicacion")}
+Factura mensual: ${datos.get("facturaMensual")}
+Objetivo: ${datos.get("objetivo")}
+Factura disponible: ${datos.get("facturaDisponible")}
+Plazo del proyecto: ${datos.get("plazo")}
+      `.trim();
+
+      const enlaceWhatsapp =
+        "https://wa.me/" +
+        numeroWhatsapp +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+      botonWhatsapp.href = enlaceWhatsapp;
+
+      contenidoFormulario.style.display = "none";
+      resultado.style.display = "block";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    actualizarProgreso();
+  </script>
+
+</body>
+</html>
