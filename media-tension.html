@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Evaluación de proyecto en media tensión | INEC Ingeniería</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 30px 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f3f6fa;
+      color: #1f2937;
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 35px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 45, 90, 0.10);
+    }
+
+    .logo {
+      display: block;
+      width: 105px;
+      max-width: 100%;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: #073b66;
+      font-size: 30px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .introduccion {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .campo {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #123b5d;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    select,
+    input {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: #1f2937;
+      font-family: inherit;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: #0c67a8;
+      box-shadow: 0 0 0 3px rgba(12, 103, 168, 0.12);
+    }
+
+    input::placeholder {
+      color: #8a94a3;
+    }
+
+    .nota {
+      margin: -8px 0 24px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 9px;
+      background-color: #25d366;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #1fbd5a;
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .privacidad {
+      margin: 16px 0 0;
+      color: #6b7280;
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 10px;
+      }
+
+      .contenedor {
+        padding: 26px 18px;
+        border-radius: 12px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .introduccion {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="contenedor">
+
+    <img
+      class="logo"
+      src="logo-inec.png"
+      alt="INEC Ingeniería"
+    >
+
+    <h1>Evaluación de proyecto en media tensión</h1>
+
+    <p class="introduccion">
+      Complete este breve formulario para conocer las características
+      generales de su proyecto. Al finalizar, sus respuestas serán enviadas
+      mediante WhatsApp para realizar una evaluación inicial.
+    </p>
+
+    <form id="formularioMediaTension">
+
+      <div class="campo">
+        <label for="tipoProyecto">
+          1. ¿Qué tipo de proyecto necesita?
+        </label>
+
+        <select id="tipoProyecto" required>
+          <option value="" selected disabled>Seleccione una opción</option>
+          <option>Nuevo servicio eléctrico</option>
+          <option>Ampliación de capacidad</option>
+          <option>Instalación de transformador</option>
+          <option>Línea de media tensión</option>
+          <option>Urbanización</option>
+          <option>Proyecto industrial</option>
+          <option>Proyecto comercial</option>
+          <option>Proyecto agrícola</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="ubicacion">
+          2. ¿Dónde estará ubicado el proyecto?
+        </label>
+
+        <input
+          type="text"
+          id="ubicacion"
+          placeholder="Ejemplo: Quimistán, Santa Bárbara"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="etapaProyecto">
+          3. ¿En qué etapa se encuentra el proyecto?
+        </label>
+
+        <select id="etapaProyecto" required>
+          <option value="" selected disabled>Seleccione una opción</option>
+          <option>Solo estoy evaluando opciones</option>
+          <option>Ya cuento con el terreno</option>
+          <option>El proyecto está en construcción</option>
+          <option>Necesito iniciar lo antes posible</option>
+          <option>Ya cuento con planos eléctricos</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="solicitante">
+          4. ¿Quién solicita el proyecto?
+        </label>
+
+        <select id="solicitante" required>
+          <option value="" selected disabled>Seleccione una opción</option>
+          <option>Propietario</option>
+          <option>Empresa</option>
+          <option>Ingeniero</option>
+          <option>Arquitecto</option>
+          <option>Contratista</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="tipoInstalacion">
+          5. ¿Para qué será la instalación?
+        </label>
+
+        <select id="tipoInstalacion" required>
+          <option value="" selected disabled>Seleccione una opción</option>
+          <option>Industria</option>
+          <option>Bodega</option>
+          <option>Centro comercial</option>
+          <option>Urbanización</option>
+          <option>Gasolinera</option>
+          <option>Beneficio de café</option>
+          <option>Granja</option>
+          <option>Sistema de bombeo</option>
+          <option>Hotel</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="capacidad">
+          6. ¿Tiene una idea de la capacidad eléctrica requerida?
+        </label>
+
+        <select id="capacidad" required>
+          <option value="" selected disabled>Seleccione una opción</option>
+          <option>Menos de 25 kVA</option>
+          <option>Entre 25 y 75 kVA</option>
+          <option>Entre 75 y 150 kVA</option>
+          <option>Entre 150 y 300 kVA</option>
+          <option>Más de 300 kVA</option>
+          <option>No lo sé</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="fechaEjecucion">
+          7. ¿Cuándo desea ejecutar el proyecto?
+        </label>
+
+        <select id="fechaEjecucion" required>
+          <option value="" selected disabled>Seleccione una opción</option>
+          <option>Inmediatamente</option>
+          <option>En los próximos 3 meses</option>
+          <option>En los próximos 6 meses</option>
+          <option>Más adelante</option>
+        </select>
+      </div>
+
+      <p class="nota">
+        Al seleccionar “Solicitar evaluación”, se abrirá WhatsApp con las
+        respuestas ingresadas. Deberá presionar “Enviar” para compartirlas.
+      </p>
+
+      <button type="submit">
+        Solicitar evaluación por WhatsApp
+      </button>
+
+      <p class="privacidad">
+        La información proporcionada será utilizada únicamente para atender
+        su solicitud y evaluar inicialmente su proyecto.
+      </p>
+
+    </form>
+  </main>
+
+  <script>
+    document
+      .getElementById("formularioMediaTension")
+      .addEventListener("submit", function (evento) {
+        evento.preventDefault();
+
+        /*
+          IMPORTANTE:
+          Sustituya 504XXXXXXXX por su número de WhatsApp.
+          Debe escribirlo sin espacios, guiones ni el signo +.
+
+          Ejemplo:
+          const numeroWhatsApp = "50499999999";
+        */
+        const numeroWhatsApp = "50432763709";
+
+        const tipoProyecto =
+          document.getElementById("tipoProyecto").value;
+
+        const ubicacion =
+          document.getElementById("ubicacion").value.trim();
+
+        const etapaProyecto =
+          document.getElementById("etapaProyecto").value;
+
+        const solicitante =
+          document.getElementById("solicitante").value;
+
+        const tipoInstalacion =
+          document.getElementById("tipoInstalacion").value;
+
+        const capacidad =
+          document.getElementById("capacidad").value;
+
+        const fechaEjecucion =
+          document.getElementById("fechaEjecucion").value;
+
+        const mensaje =
+`Hola, Ing. Oscar Ariel Arita.
+
+Deseo solicitar una evaluación para un proyecto eléctrico en media tensión.
+
+Datos del proyecto:
+
+• Tipo de proyecto: ${tipoProyecto}
+• Ubicación: ${ubicacion}
+• Etapa del proyecto: ${etapaProyecto}
+• Solicitante: ${solicitante}
+• Destino de la instalación: ${tipoInstalacion}
+• Capacidad eléctrica estimada: ${capacidad}
+• Fecha estimada de ejecución: ${fechaEjecucion}
+
+Quedo atento a su respuesta.`;
+
+        const enlaceWhatsApp =
+          "https://wa.me/" +
+          numeroWhatsApp +
+          "?text=" +
+          encodeURIComponent(mensaje);
+
+        window.location.href = enlaceWhatsApp;
+      });
+  </script>
+</body>
+</html>
