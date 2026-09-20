@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+  s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','2895075450868293');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2895075450868293&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Postes de concreto centrifugado para proyectos eléctricos. Consulte precios y envíe su solicitud de compra a INEC por WhatsApp.">
+  <title>Postes de concreto | INEC</title>
+
+  <style>
+    :root{
+      --azul:#075da8;
+      --azul-oscuro:#033d70;
+      --azul-claro:#edf6ff;
+      --blanco:#fff;
+      --gris:#f4f6f8;
+      --texto:#182230;
+      --muted:#52606d;
+      --borde:#d8dee6;
+      --verde:#16883e;
+      --amarillo:#ffd400;
+      --rojo:#c62828;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--gris);color:var(--texto)}
+    .hero{padding:34px 18px 42px;background:linear-gradient(135deg,var(--azul-oscuro),var(--azul));color:#fff;text-align:center}
+    .logo{width:105px;max-width:35%;margin-bottom:14px}
+    .badge{display:inline-block;margin:0 0 12px;padding:7px 13px;border-radius:999px;background:var(--amarillo);color:#062f59;font-weight:800;font-size:13px}
+    h1{margin:0 auto 10px;max-width:760px;font-size:clamp(30px,6vw,48px);line-height:1.05}
+    .hero p{max-width:690px;margin:0 auto;line-height:1.55}
+    .vigencia{margin-top:12px!important;font-size:13px;opacity:.92}
+    .wrap{max-width:860px;margin:0 auto;padding:22px 16px 60px}
+    .precios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-12px}
+    .precio{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:18px;text-align:center;box-shadow:0 8px 22px rgba(0,45,90,.08)}
+    .precio strong{display:block;color:var(--azul-oscuro);font-size:16px;line-height:1.35}
+    .monto{display:block;margin-top:12px;padding:9px 8px;border-radius:9px;background:var(--amarillo);color:#062f59;font-size:24px;font-weight:900}
+    .incluye{margin:13px 0 0;text-align:center;color:var(--muted);font-size:14px}
+    .cumple{text-align:center;color:var(--azul-oscuro);font-weight:700;margin:8px 0 24px}
+    .card{background:#fff;border-radius:18px;padding:30px;box-shadow:0 12px 35px rgba(0,45,90,.10)}
+    .card h2{margin:0 0 8px;color:var(--azul-oscuro);font-size:28px}
+    .intro{margin:0 0 26px;color:var(--muted);line-height:1.55}
+    .campo{margin-bottom:21px}
+    label,.titulo-campo{display:block;margin-bottom:8px;color:#123b5d;font-weight:700;line-height:1.4}
+    .req{color:var(--rojo)}
+    input,select{width:100%;min-height:50px;padding:12px 14px;border:1px solid var(--borde);border-radius:9px;background:#fff;color:var(--texto);font:inherit;outline:none}
+    input:focus,select:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(7,93,168,.12)}
+    .radio-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .opcion{display:flex;align-items:center;gap:9px;padding:13px;border:1px solid var(--borde);border-radius:9px;cursor:pointer;font-weight:500;color:var(--texto)}
+    .opcion input{width:auto;min-height:auto}
+    .resumen{margin:26px 0 18px;padding:18px;border-radius:12px;background:var(--azul-claro);border:1px solid #d7e9fb}
+    .resumen h3{margin:0 0 12px;color:var(--azul-oscuro)}
+    .fila{display:flex;justify-content:space-between;gap:15px;margin:7px 0}
+    .total{padding-top:10px;margin-top:10px;border-top:1px solid #c5d9ed;font-size:19px;font-weight:800;color:var(--azul-oscuro)}
+    button{width:100%;min-height:56px;border:0;border-radius:10px;background:var(--verde);color:#fff;font-size:17px;font-weight:800;cursor:pointer}
+    button:hover{filter:brightness(.94)}
+    .nota{margin:13px 0 0;color:var(--muted);font-size:12px;line-height:1.5;text-align:center}
+    .condiciones{margin-top:18px;padding:16px;border-radius:12px;background:#fff;border:1px solid var(--borde);color:var(--muted);font-size:13px;line-height:1.55}
+    footer{text-align:center;color:var(--muted);font-size:12px;margin-top:26px}
+    @media(max-width:700px){
+      .precios{grid-template-columns:1fr}
+      .card{padding:24px 18px}
+      .radio-grid{grid-template-columns:1fr}
+      .monto{font-size:22px}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <img src="logo-inec.png" alt="INEC Ingeniería" class="logo">
+    <div><span class="badge">FLASH SALE</span></div>
+    <h1>Postes de concreto centrifugado</h1>
+    <p>Conozca el precio antes de contactarnos. Si desea realizar una compra, complete la solicitud y envíela directamente por WhatsApp.</p>
+    <p class="vigencia">Precios válidos del 09-09-2026 al 30-09-2026.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="precios" aria-label="Precios de postes">
+      <article class="precio">
+        <strong>30 pies · 450 kg</strong>
+        <span class="monto">L. 8,999.00</span>
+      </article>
+      <article class="precio">
+        <strong>35 pies · 450 kg</strong>
+        <span class="monto">L. 10,599.00</span>
+      </article>
+      <article class="precio">
+        <strong>40 pies · 750 kg</strong>
+        <span class="monto">L. 14,599.00</span>
+      </article>
+    </section>
+
+    <p class="incluye">Precios con ISV incluido.</p>
+    <p class="cumple">Cumple norma ENEE.</p>
+
+    <section class="card">
+      <h2>Solicitud de compra</h2>
+      <p class="intro">Complete todos los campos. Al finalizar se abrirá WhatsApp con la información de su solicitud lista para enviar.</p>
+
+      <form id="formPostes">
+        <div class="campo">
+          <label for="poste">1. ¿Qué poste necesita? <span class="req">*</span></label>
+          <select id="poste" name="poste" required>
+            <option value="" selected disabled>Seleccione una opción</option>
+            <option value="30 pies - 450 kg" data-precio="8999">30 pies · 450 kg — L. 8,999.00</option>
+            <option value="35 pies - 450 kg" data-precio="10599">35 pies · 450 kg — L. 10,599.00</option>
+            <option value="40 pies - 750 kg" data-precio="14599">40 pies · 750 kg — L. 14,599.00</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="cantidad">2. ¿Cuántos postes necesita? <span class="req">*</span></label>
+          <input id="cantidad" name="cantidad" type="number" min="1" step="1" inputmode="numeric" placeholder="Ejemplo: 5" required>
+        </div>
+
+        <div class="campo">
+          <label for="ubicacion">3. ¿En qué ciudad o municipio los necesita? <span class="req">*</span></label>
+          <input id="ubicacion" name="ubicacion" type="text" placeholder="Ejemplo: San Pedro Sula, Cortés" required>
+        </div>
+
+        <div class="campo">
+          <label for="plazo">4. ¿Cuándo necesita los postes? <span class="req">*</span></label>
+          <select id="plazo" name="plazo" required>
+            <option value="" selected disabled>Seleccione una opción</option>
+            <option>Lo antes posible</option>
+            <option>Esta semana</option>
+            <option>En 1 a 2 semanas</option>
+            <option>Durante este mes</option>
+            <option>En más de un mes</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="nombre">5. Nombre completo <span class="req">*</span></label>
+          <input id="nombre" name="nombre" type="text" placeholder="Nombre y apellido" required>
+        </div>
+
+        <div class="campo">
+          <span class="titulo-campo">6. ¿La compra es personal o para empresa? <span class="req">*</span></span>
+          <div class="radio-grid">
+            <label class="opcion"><input type="radio" name="tipoCompra" value="Personal" required> Personal</label>
+            <label class="opcion"><input type="radio" name="tipoCompra" value="Empresa"> Empresa</label>
+          </div>
+        </div>
+
+        <div class="campo" id="campoEmpresa" hidden>
+          <label for="empresa">Nombre de la empresa <span class="req">*</span></label>
+          <input id="empresa" name="empresa" type="text" placeholder="Nombre de la empresa">
+        </div>
+
+        <div class="resumen">
+          <h3>Resumen de su solicitud</h3>
+          <div class="fila"><span>Poste</span><strong id="rPoste">—</strong></div>
+          <div class="fila"><span>Cantidad</span><strong id="rCantidad">—</strong></div>
+          <div class="fila"><span>Precio unitario</span><strong id="rUnitario">—</strong></div>
+          <div class="fila total"><span>Total con ISV</span><strong id="rTotal">—</strong></div>
+        </div>
+
+        <button type="submit">Enviar solicitud por WhatsApp</button>
+        <p class="nota">Al presionar el botón se abrirá WhatsApp con sus respuestas. Deberá presionar “Enviar” para compartir la solicitud con INEC.</p>
+      </form>
+    </section>
+
+    <div class="condiciones">
+      Los precios mostrados incluyen ISV y corresponden al período indicado. La disponibilidad y las condiciones de entrega se confirman al procesar la solicitud.
+    </div>
+
+    <footer>© INEC · Ingenieros Electromecánicos y Constructores · Honduras</footer>
+  </main>
+
+  <script>
+    const form = document.getElementById('formPostes');
+    const poste = document.getElementById('poste');
+    const cantidad = document.getElementById('cantidad');
+    const campoEmpresa = document.getElementById('campoEmpresa');
+    const empresa = document.getElementById('empresa');
+    const numeroWhatsApp = '50432763709';
+
+    const moneda = valor => 'L. ' + Number(valor).toLocaleString('es-HN', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    function actualizarResumen(){
+      const opcion = poste.options[poste.selectedIndex];
+      const precio = opcion && opcion.dataset.precio ? Number(opcion.dataset.precio) : 0;
+      const unidades = Math.max(0, Number(cantidad.value) || 0);
+
+      document.getElementById('rPoste').textContent = poste.value || '—';
+      document.getElementById('rCantidad').textContent = unidades || '—';
+      document.getElementById('rUnitario').textContent = precio ? moneda(precio) : '—';
+      document.getElementById('rTotal').textContent = precio && unidades ? moneda(precio * unidades) : '—';
+    }
+
+    poste.addEventListener('change', actualizarResumen);
+    cantidad.addEventListener('input', actualizarResumen);
+
+    document.querySelectorAll('input[name="tipoCompra"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const esEmpresa = radio.value === 'Empresa' && radio.checked;
+        if (esEmpresa) {
+          campoEmpresa.hidden = false;
+          empresa.required = true;
+        } else if (radio.checked) {
+          campoEmpresa.hidden = true;
+          empresa.required = false;
+          empresa.value = '';
+        }
+      });
+    });
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const datos = new FormData(form);
+      const opcion = poste.options[poste.selectedIndex];
+      const precio = Number(opcion.dataset.precio);
+      const unidades = Number(datos.get('cantidad'));
+      const total = precio * unidades;
+      const tipoCompra = datos.get('tipoCompra');
+      const nombreEmpresa = tipoCompra === 'Empresa' ? datos.get('empresa') : 'No aplica';
+
+      const mensaje = `SOLICITUD DE COMPRA - POSTES DE CONCRETO
+
+Nombre: ${datos.get('nombre')}
+Tipo de compra: ${tipoCompra}
+Empresa: ${nombreEmpresa}
+
+Poste: ${datos.get('poste')}
+Cantidad: ${unidades} unidad(es)
+Precio unitario: ${moneda(precio)}
+Total de referencia con ISV: ${moneda(total)}
+
+Ubicación: ${datos.get('ubicacion')}
+¿Cuándo los necesita?: ${datos.get('plazo')}
+
+He revisado los precios publicados y deseo continuar con la solicitud de compra.`;
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Postes de concreto',
+          value: total,
+          currency: 'HNL'
+        });
+      }
+
+      const enlace = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
+      window.location.href = enlace;
+    });
+
+    actualizarResumen();
+  </script>
+</body>
+</html>
